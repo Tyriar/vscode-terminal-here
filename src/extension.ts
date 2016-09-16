@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (!editor) {
             return;
         }
-        
+
         let document = editor.document;
         if (!document) {
             return;
@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
         let dir = path.dirname(uri.fsPath);
         let terminal = vscode.window.createTerminal();
         terminal.show(false);
-        terminal.sendText(`cd ${dir}`);
+        terminal.sendText(`cd "${dir}"`);
     });
 
     context.subscriptions.push(disposable);
