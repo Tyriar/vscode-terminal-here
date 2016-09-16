@@ -13,6 +13,13 @@
     "activationEvents": [
         "onCommand:terminalHere.create"
     ],
+    "bugs": {
+        "url": "https://github.com/Tyriar/vscode-terminal-here/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Tyriar/vscode-terminal-here"
+    },
     "main": "./out/src/extension",
     "contributes": {
         "commands": [{
