@@ -1,6 +1,7 @@
 'use strict';
 
 import * as vscode from 'vscode';
+import * as os from 'os';
 import path = require('path');
 
 export function activate(context: vscode.ExtensionContext) {
@@ -46,9 +47,13 @@ export function deactivate() {
 }
 
 function kindOfShell(terminalSettings) {
+    if (os.platform() !== 'win32') {
+        return;
+    }
+
     const windowsShellPath = terminalSettings.integrated.shell.windows;
 
-    if(!windowsShellPath) {
+    if (!windowsShellPath) {
         return undefined;
     }
 
