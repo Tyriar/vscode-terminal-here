@@ -22,7 +22,8 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         let dir = path.dirname(uri.fsPath),
-            args = '';
+            args = '',
+            opts = {};
         
         if (os.platform() === 'win32') {
             let kind = kindOfShell(vscode.workspace.getConfiguration('terminal'));
@@ -39,7 +40,8 @@ export function activate(context: vscode.ExtensionContext) {
                     break;
                 case "powershell":
                 case "cmd":
-                    dir = dir.replace(/^(\w):/, (s) => s.toUpperCase())
+                    dir = dir.replace(/^(\w):/, (s) => s.toUpperCase());
+                    opts.cwd = dir;
                     args += ' /d' // using the `/d` switch so that drive letter is updated
                     break;
                 default:
@@ -49,12 +51,12 @@ export function activate(context: vscode.ExtensionContext) {
             
         }
         
-        // We set the current working directory of the terminal...
-        let terminal = vscode.window.createTerminal({cwd: dir});
+        let terminal = vscode.window.createTerminal(opts);
         terminal.show(false);
 
-        // ...instead of sending a change directory command to it
-        //terminal.sendText(`cd${args} "${dir}"`);
+        // Send the cd command only if `cwd` is not set
+        if ( !opts.cwd )
+            terminal.sendText(`cd${args} "${dir}"`);
     });
 
     context.subscriptions.push(disposable);
