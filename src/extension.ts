@@ -23,7 +23,8 @@ export function activate(context: vscode.ExtensionContext) {
 
         let dir = path.dirname(uri.fsPath),
             args = '',
-            opts = {};
+            opts = {},
+            clsCommand = '';
         
         if (os.platform() === 'win32') {
             let kind = kindOfShell(vscode.workspace.getConfiguration('terminal'));
@@ -31,18 +32,21 @@ export function activate(context: vscode.ExtensionContext) {
             switch(kind) {
                 case "wslbash":
                     // c:\workspace\foo to /mnt/c/workspace/foo
-                    dir = dir.replace(/^(\w):/, '/mnt/$1').replace(/\\/g, '/')
+                    dir = dir.replace(/^(\w):/, '/mnt/$1').replace(/\\/g, '/');
+                    clsCommand = 'clear'
                     break;
                 case "cygwin":
                 case "gitbash":
                     // cygwin and mingw can handle win32 paths just fine
-                    dir = dir.replace(/\\/g, '/')
+                    dir = dir.replace(/\\/g, '/');
+                    clsCommand = 'clear'
                     break;
                 case "powershell":
                 case "cmd":
                     dir = dir.replace(/^(\w):/, (s) => s.toUpperCase());
                     opts.cwd = dir;
                     args += ' /d' // using the `/d` switch so that drive letter is updated
+                    clsCommand = 'cls'
                     break;
                 default:
                     //vscode.window.showMessage(`The terminal type ${kind} is not recognised`)
@@ -55,8 +59,12 @@ export function activate(context: vscode.ExtensionContext) {
         terminal.show(false);
 
         // Send the cd command only if `cwd` is not set
-        if ( !opts.cwd )
+        if ( !opts.cwd ) {
             terminal.sendText(`cd${args} "${dir}"`);
+            
+            if (clsCommand)
+                terminal.sendText(clsCommand);
+        }
     });
 
     context.subscriptions.push(disposable);
@@ -83,6 +91,9 @@ function kindOfShell(terminalSettings) {
     
     // Detect kind of shell based on the executable name and path
     switch(execName.toLowerCase()) {
+        case 'wsl':
+        case 'ubuntu':
+            return 'wslbash';
         case 'bash':
             if (compareDir(execDir, system32Path) || execDir === '.')
                 return 'wslbash';
