@@ -39,7 +39,6 @@
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
         "@types/vscode": "1.20",
-        "tslint": "^5.8.0",
         "typescript": "3.5.2"
     }
 }
