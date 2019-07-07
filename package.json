@@ -33,14 +33,13 @@
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
+        "@types/vscode": "1.20",
         "tslint": "^5.8.0",
-        "typescript": "3.5.2",
-        "vscode": "^1.1.6"
+        "typescript": "3.5.2"
     }
 }
