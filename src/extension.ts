@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         let dir = path.dirname(uri.fsPath),
             args = '',
-            opts = {},
+            opts: vscode.TerminalOptions = {},
             clsCommand = '';
         
         if (os.platform() === 'win32') {
