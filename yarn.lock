@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.10.6.tgz#c42137f0f2f6458bf0c898d65f48c5f600911475"
   integrity sha512-d0BOAicT0tEdbdVQlLGOVul1kvg6YvbaADRCThGCz5NJ0e9r00SofcR1x69hmlCyrHuB6jd4cKzL9bMLjPnpAA==
 
-"@types/vscode@1.20":
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/@types/vscode/-/vscode-1.20.0.tgz#5bd4ab68f7e9231412f87f61bf40882da1cc0375"
-  integrity sha512-IeQ4kCfbRihpoeSWmC09bGjgdKXB5g09wWdPQcc2WHYjbpsf7p5U1F0bymEMKkyqnledI0LfMTgopwPwnrjTSg==
+"@types/vscode@1.37":
+  version "1.37.0"
+  resolved "https://registry.yarnpkg.com/@types/vscode/-/vscode-1.37.0.tgz#fb26ffabfabcd50ba70e8b454122a91b84548080"
+  integrity sha512-PRfeuqYuzk3vjf+puzxltIUWC+AhEGYpFX29/37w30DQSQnpf5AgMVf7GDBAdmTbWTBou+EMFz/Ne6XCM/KxzQ==
 
 typescript@3.5.2:
   version "3.5.2"

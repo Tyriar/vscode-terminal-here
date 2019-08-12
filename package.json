@@ -1,18 +1,18 @@
 {
     "name": "vscode-terminal-here",
-    "displayName": "Terminal Here",
+    "displayName": "Terminal Here (deprecated)",
     "description": "Creates an intergrated terminal session at the current file's directory",
     "version": "0.2.1",
     "publisher": "Tyriar",
     "engines": {
-        "vscode": "^1.20.0"
+        "vscode": "^1.37.0"
     },
     "extensionKind": "workspace",
     "categories": [
         "Other"
     ],
     "activationEvents": [
-        "onCommand:terminalHere.create"
+        "*"
     ],
     "bugs": {
         "url": "https://github.com/Tyriar/vscode-terminal-here/issues"
@@ -39,7 +39,7 @@
     "devDependencies": {
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
-        "@types/vscode": "1.20",
+        "@types/vscode": "1.37",
         "typescript": "3.5.2"
     }
 }
