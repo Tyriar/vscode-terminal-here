@@ -1,4 +1,4 @@
-## 0.2.2
+## 0.2.2, 0.2.3
 
 - The extension is now deprecated and shows a notice for steps to use a setting to open a terminal in the current file's directory [#20](https://github.com/Tyriar/vscode-terminal-here/pull/20) via [@Tyriar](https://github.com/Tyriar)
 
