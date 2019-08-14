@@ -1,8 +1,8 @@
 {
     "name": "vscode-terminal-here",
-    "displayName": "Terminal Here (deprecated)",
+    "displayName": "Terminal Here",
     "description": "Creates an intergrated terminal session at the current file's directory",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "publisher": "Tyriar",
     "engines": {
         "vscode": "^1.37.0"
